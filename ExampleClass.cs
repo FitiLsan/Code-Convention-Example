@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 namespace ExamplNamespace
@@ -24,7 +23,9 @@ namespace ExamplNamespace
         #region Fields
         
         [Header("Example"), Tooltip("Example"), TextArea(5, 5)] public string ExamplePublicField;
-        private const float EXAMPLECONST = 0.0f;
+        public Vector3Int ExamplePublicFieldFirst;
+        public Vector3 ExamplePublicFieldSecond;
+        private const float EXAMPLE_CONST = 0.0f;
         private bool _isExamplePrivateField;
         private int _stat;
         private readonly int _examplePrivateField;
@@ -76,54 +77,5 @@ namespace ExamplNamespace
         }
 
         #endregion
-    }
-
-    public abstract class ExampleBaseClass : MonoBehaviour, IInterfacable
-    {
-        private Button _button;
-        
-        #region UnityMethods
-
-        private void Awake()
-        {
-            _button = FindObjectOfType<Button>();
-        }
-
-        private void OnEnable()
-        {
-            _button.onClick.AddListener(Example);
-        }
-
-        private void OnDisable()
-        {
-            _button.onClick.RemoveListener(Example);
-        }
-
-        #endregion
-        
-
-        #region Methods
-        
-        protected virtual void VirtualMethod()
-        {
-           
-        }
-
-        #endregion
-        
-        
-        #region IInterfacable
-        
-        public void Example()
-        {
-            
-        }
-
-        #endregion
-    }
-
-    public interface IInterfacable
-    {
-        void Example();
     }
 }
